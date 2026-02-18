@@ -40,18 +40,25 @@ export default function Hero() {
                 />
             </div>
 
-            {/* RIGHT — Doom image: absolute, fills right half, bottom-anchored */}
+            {/* RIGHT — Doom image: absolute, fills right side, full height */}
             <motion.div
-                className="absolute right-0 bottom-0 w-1/2 h-full pointer-events-none"
+                className="absolute right-0 top-0 w-[62%] h-full pointer-events-none"
                 initial={{ opacity: 0, x: 80 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
             >
+                {/* Left-edge fade so image blends into text area */}
+                <div
+                    className="absolute inset-0 z-10 pointer-events-none"
+                    style={{
+                        background: "linear-gradient(to left, #080f0a 0%, transparent 8%), linear-gradient(to top, #080f0a 0%, transparent 15%)",
+                    }}
+                />
                 {/* Green glow behind character */}
                 <div
                     className="absolute inset-0 pointer-events-none"
                     style={{
-                        background: "radial-gradient(ellipse 60% 70% at 60% 80%, rgba(61,220,132,0.13) 0%, transparent 70%)",
+                        background: "radial-gradient(ellipse 70% 80% at 55% 60%, rgba(61,220,132,0.11) 0%, transparent 70%)",
                     }}
                 />
                 <Image
@@ -59,8 +66,8 @@ export default function Hero() {
                     alt="Doctor Doom"
                     fill
                     priority
-                    sizes="50vw"
-                    className="object-contain object-bottom drop-shadow-[0_0_80px_rgba(61,220,132,0.3)]"
+                    sizes="62vw"
+                    className="object-contain object-bottom drop-shadow-[0_0_100px_rgba(61,220,132,0.35)]"
                 />
             </motion.div>
 
@@ -71,7 +78,7 @@ export default function Hero() {
                 animate="visible"
                 className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-10 flex flex-col justify-center min-h-screen pb-16 pt-24"
             >
-                <div className="max-w-xl">
+                <div className="w-full md:max-w-[44%]">
                     <motion.p
                         variants={itemVariants}
                         className="text-accent-cyan text-xs font-semibold tracking-[0.3em] uppercase mb-5"
