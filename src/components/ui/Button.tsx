@@ -23,11 +23,11 @@ type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variantStyles: Record<Variant, string> = {
     primary:
-        "bg-accent-cyan text-bg-primary font-bold hover:shadow-[0_0_24px_rgba(0,245,212,0.4)] hover:scale-105",
+        "bg-accent-cyan text-bg-primary font-bold hover:shadow-[0_0_30px_rgba(0,245,212,0.35)] hover:scale-[1.03] active:scale-[0.98]",
     secondary:
-        "bg-accent-purple text-white font-bold hover:shadow-[0_0_24px_rgba(124,58,237,0.4)] hover:scale-105",
+        "bg-accent-purple text-white font-bold hover:shadow-[0_0_30px_rgba(124,58,237,0.35)] hover:scale-[1.03] active:scale-[0.98]",
     outline:
-        "bg-transparent border-2 border-accent-cyan text-accent-cyan font-bold hover:bg-accent-cyan/10",
+        "bg-transparent border border-accent-cyan/40 text-accent-cyan font-bold hover:bg-accent-cyan/[0.08] hover:border-accent-cyan/60 hover:shadow-[0_0_20px_rgba(0,245,212,0.1)]",
 };
 
 export default function Button({
@@ -37,7 +37,7 @@ export default function Button({
     ...props
 }: ButtonProps) {
     const base =
-        "inline-flex items-center justify-center px-6 py-3 rounded-xl text-sm md:text-base transition-all duration-200 ease-out cursor-pointer";
+        "inline-flex items-center justify-center px-6 py-3 rounded-xl text-sm md:text-base tracking-wide transition-all duration-250 ease-out cursor-pointer";
     const classes = `${base} ${variantStyles[variant]} ${className}`;
 
     if ("href" in props && props.href) {

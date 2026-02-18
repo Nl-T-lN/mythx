@@ -10,7 +10,6 @@ const navLinks = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Register", href: "/register" },
-    { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -22,7 +21,7 @@ export default function Navbar() {
             <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="text-xl font-bold tracking-wider">
-                    <span className="text-accent-cyan">MYTH</span>
+                    <span className="text-accent-cyan text-glow-cyan">MYTH</span>
                     <span className="text-white">X</span>
                 </Link>
 
@@ -32,12 +31,15 @@ export default function Navbar() {
                         <li key={link.href}>
                             <Link
                                 href={link.href}
-                                className={`text-sm font-medium transition-colors duration-200 ${pathname === link.href
-                                        ? "text-accent-cyan"
-                                        : "text-text-muted hover:text-white"
+                                className={`relative text-sm font-medium transition-colors duration-200 ${pathname === link.href
+                                    ? "text-accent-cyan"
+                                    : "text-text-muted hover:text-white"
                                     }`}
                             >
                                 {link.label}
+                                {pathname === link.href && (
+                                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-accent-cyan shadow-[0_0_6px_rgba(0,245,212,0.6)]" />
+                                )}
                             </Link>
                         </li>
                     ))}

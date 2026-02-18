@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import GlassContainer from "@/components/ui/GlassContainer";
+import Input from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
 import TierSelector from "@/components/registration/TierSelector";
 import RegisterForm from "@/components/registration/RegisterForm";
@@ -37,7 +39,6 @@ export default function RegisterPage() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        // Basic client-side validation
         if (!formData.fullName || !formData.email || !formData.phone || !formData.college || !formData.experienceLevel) {
             alert("Please fill in all required fields.");
             return;
@@ -50,7 +51,6 @@ export default function RegisterPage() {
 
         setIsSubmitting(true);
 
-        // Simulate API call
         try {
             const endpoint = selectedTier === "free" ? "/api/register" : "/api/payment";
             console.log(`POST ${endpoint}`, { ...formData, selectedTier, transactionId });
@@ -70,49 +70,79 @@ export default function RegisterPage() {
                 <div className="absolute inset-0 -z-10">
                     <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-accent-blue/10 rounded-full blur-[128px]" />
                 </div>
-                <p className="text-accent-cyan text-sm font-semibold tracking-widest uppercase mb-4">
-                    Join The Event
-                </p>
-                <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
-                    <span className="text-accent-cyan">Register</span> Now
-                </h1>
-                <p className="mt-6 text-lg text-text-muted max-w-2xl mx-auto">
-                    Choose your tier, fill in your details, and secure your spot.
-                </p>
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                    <p className="text-accent-cyan text-xs font-medium tracking-[0.3em] uppercase mb-4">
+                        {">"} Join The Event
+                    </p>
+                    <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+                        <span className="text-accent-cyan text-glow-cyan">Register</span> Now
+                    </h1>
+                    <p className="mt-6 text-lg text-text-muted max-w-2xl mx-auto">
+                        Choose your tier, fill in your details, and secure your spot.
+                    </p>
+                </motion.div>
             </section>
 
             {/* Registration form */}
             <section className="pb-20 px-4">
                 <form onSubmit={handleSubmit} className="max-w-3xl mx-auto space-y-10">
                     {/* Tier Selector */}
-                    <div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-60px" }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                    >
                         <h2 className="text-xl font-bold text-center mb-6">
-                            Select Your <span className="text-accent-cyan">Tier</span>
+                            Select Your <span className="text-accent-cyan text-glow-cyan">Tier</span>
                         </h2>
                         <TierSelector selectedTier={selectedTier} onSelect={setSelectedTier} />
-                    </div>
+                    </motion.div>
 
                     {/* Form */}
-                    <GlassContainer className="p-6 md:p-8">
-                        <h3 className="text-xl font-bold text-white mb-6">Your Details</h3>
-                        <RegisterForm formData={formData} onChange={setFormData} />
-                    </GlassContainer>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-60px" }}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+                    >
+                        <GlassContainer className="p-6 md:p-8">
+                            <h3 className="text-xl font-bold text-white mb-6">Your Details</h3>
+                            <RegisterForm formData={formData} onChange={setFormData} />
+                        </GlassContainer>
+                    </motion.div>
 
                     {/* Payment Panel — premium only */}
                     {selectedTier === "premium" && (
-                        <PaymentPanel
-                            transactionId={transactionId}
-                            onTransactionIdChange={setTransactionId}
-                            onScreenshotChange={setScreenshot}
-                        />
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, ease: "easeOut" }}
+                        >
+                            <PaymentPanel
+                                transactionId={transactionId}
+                                onTransactionIdChange={setTransactionId}
+                                onScreenshotChange={setScreenshot}
+                            />
+                        </motion.div>
                     )}
 
                     {/* Submit */}
-                    <div className="text-center">
+                    <motion.div
+                        className="text-center"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-60px" }}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+                    >
                         <Button type="submit" variant="primary" disabled={isSubmitting}>
                             {isSubmitting ? "Submitting..." : `Register — ${selectedTier === "free" ? "Free" : "₹200"}`}
                         </Button>
-                    </div>
+                    </motion.div>
                 </form>
             </section>
 

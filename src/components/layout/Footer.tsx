@@ -4,18 +4,19 @@ const footerLinks = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Register", href: "/register" },
-    { label: "Contact", href: "/contact" },
 ];
 
 export default function Footer() {
     return (
-        <footer className="border-t border-white/10 bg-bg-secondary/50 backdrop-blur-lg">
+        <footer className="relative border-t border-white/[0.06] bg-bg-secondary/50 backdrop-blur-lg">
+            {/* Glowing top border */}
+            <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(0,245,212,0.2), transparent)' }} />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Brand */}
                     <div>
                         <Link href="/" className="text-xl font-bold tracking-wider">
-                            <span className="text-accent-cyan">MYTH</span>
+                            <span className="text-accent-cyan text-glow-cyan">MYTH</span>
                             <span className="text-white">X</span>
                         </Link>
                         <p className="mt-3 text-sm text-text-muted leading-relaxed">

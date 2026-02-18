@@ -18,8 +18,8 @@ export default function MobileMenu({ isOpen, links, pathname, onClose }: MobileM
                     href={link.href}
                     onClick={onClose}
                     className={`text-2xl font-semibold transition-colors duration-200 ${pathname === link.href
-                            ? "text-accent-cyan"
-                            : "text-text-muted hover:text-white"
+                        ? "text-accent-cyan text-glow-cyan"
+                        : "text-text-muted hover:text-white"
                         }`}
                 >
                     {link.label}
@@ -28,7 +28,7 @@ export default function MobileMenu({ isOpen, links, pathname, onClose }: MobileM
             <Link
                 href="/register"
                 onClick={onClose}
-                className="mt-4 inline-flex items-center justify-center px-8 py-4 rounded-xl bg-accent-cyan text-bg-primary font-bold text-lg transition-all duration-200 hover:shadow-[0_0_24px_rgba(0,245,212,0.4)]"
+                className="mt-4 inline-flex items-center justify-center px-8 py-4 rounded-xl bg-accent-cyan text-bg-primary font-bold text-lg transition-all duration-200 hover:shadow-[0_0_30px_rgba(0,245,212,0.35)]"
             >
                 Register Now
             </Link>
