@@ -19,8 +19,8 @@ export default function SquaresBackground() {
                 speed={0.5}
                 squareSize={50}
                 direction='diagonal'
-                borderColor='#3B3347'
-                hoverFillColor='#222222'
+                borderColor='#1a3d24'
+                hoverFillColor='#0f2a18'
             />
         </div>
     )

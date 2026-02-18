@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 
 const containerVariants = {
@@ -22,95 +23,103 @@ const itemVariants = {
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4">
-            {/* Animated gradient orbs */}
-            <div className="absolute inset-0 -z-10 overflow-hidden">
+        <section className="relative min-h-screen flex items-center overflow-hidden">
+            {/* Background glow orbs */}
+            <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
                 <motion.div
-                    className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-accent-cyan/8 rounded-full blur-[160px]"
-                    animate={{
-                        x: [0, 30, -20, 0],
-                        y: [0, -40, 20, 0],
-                        scale: [1, 1.1, 0.95, 1],
-                    }}
-                    transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full blur-[180px]"
+                    style={{ background: "rgba(61,220,132,0.07)" }}
+                    animate={{ x: [0, 20, -15, 0], y: [0, -30, 15, 0], scale: [1, 1.08, 0.95, 1] }}
+                    transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
                 />
                 <motion.div
-                    className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent-purple/8 rounded-full blur-[140px]"
-                    animate={{
-                        x: [0, -25, 35, 0],
-                        y: [0, 30, -25, 0],
-                        scale: [1, 0.9, 1.1, 1],
-                    }}
-                    transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-                />
-                <motion.div
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-accent-blue/5 rounded-full blur-[120px]"
-                    animate={{
-                        scale: [1, 1.2, 0.9, 1],
-                    }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute bottom-0 right-1/3 w-[400px] h-[400px] rounded-full blur-[140px]"
+                    style={{ background: "rgba(26,107,60,0.12)" }}
+                    animate={{ x: [0, -20, 30, 0], y: [0, 25, -20, 0], scale: [1, 0.9, 1.1, 1] }}
+                    transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
                 />
             </div>
 
-            {/* Horizontal accent line */}
-            <div className="absolute top-1/2 left-0 right-0 h-px -z-10">
+            {/* RIGHT — Doom image: absolute, fills right half, bottom-anchored */}
+            <motion.div
+                className="absolute right-0 bottom-0 w-1/2 h-full pointer-events-none"
+                initial={{ opacity: 0, x: 80 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+            >
+                {/* Green glow behind character */}
                 <div
-                    className="h-full mx-auto max-w-4xl"
+                    className="absolute inset-0 pointer-events-none"
                     style={{
-                        background: "linear-gradient(90deg, transparent, rgba(0,245,212,0.15), transparent)",
+                        background: "radial-gradient(ellipse 60% 70% at 60% 80%, rgba(61,220,132,0.13) 0%, transparent 70%)",
                     }}
                 />
-            </div>
+                <Image
+                    src="/dooms_rbg.png"
+                    alt="Doctor Doom"
+                    fill
+                    priority
+                    sizes="50vw"
+                    className="object-contain object-bottom drop-shadow-[0_0_80px_rgba(61,220,132,0.3)]"
+                />
+            </motion.div>
 
-            {/* Content */}
+            {/* LEFT — Text content */}
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                className="text-center max-w-4xl mx-auto"
+                className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-10 flex flex-col justify-center min-h-screen pb-16 pt-24"
             >
-                <motion.p
-                    variants={itemVariants}
-                    className="text-accent-cyan text-xs md:text-sm font-medium tracking-[0.3em] uppercase mb-6"
-                >
-                    MYTHX
-                </motion.p>
+                <div className="max-w-xl">
+                    <motion.p
+                        variants={itemVariants}
+                        className="text-accent-cyan text-xs font-semibold tracking-[0.3em] uppercase mb-5"
+                    >
+                        Capture The Flag Event
+                    </motion.p>
 
-                <motion.h1
-                    variants={itemVariants}
-                    className="text-5xl sm:text-6xl md:text-8xl font-extrabold leading-[0.95] tracking-tight"
-                >
-                    CTF COMMUNITY{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-purple text-glow-cyan">
-                        2026
-                    </span>
-                </motion.h1>
+                    <motion.h1
+                        variants={itemVariants}
+                        className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[0.95] tracking-tight"
+                    >
+                        CTF
+                        <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-purple text-glow-cyan">
+                            COMMUNITY
+                        </span>
+                        <br />
+                        <span className="text-white/30 text-4xl sm:text-5xl lg:text-6xl">2026</span>
+                    </motion.h1>
 
-                <motion.p
-                    variants={itemVariants}
-                    className="mt-7 text-base md:text-lg text-text-muted max-w-2xl mx-auto leading-relaxed"
-                >
-                    Join the ultimate cybersecurity competition. Test your skills, solve
-                    real-world challenges, and connect with the best security minds in the
-                    community.
-                </motion.p>
+                    {/* Accent line */}
+                    <motion.div
+                        variants={itemVariants}
+                        className="mt-6 mb-6 h-px w-24"
+                        style={{ background: "linear-gradient(90deg, #3ddc84, transparent)" }}
+                    />
 
-                {/* <motion.div
-                    mythx(s33_y0u_500n)
-                    </span>
-                </motion.div> */}
+                    <motion.p
+                        variants={itemVariants}
+                        className="text-base md:text-lg text-text-muted max-w-md leading-relaxed"
+                    >
+                        Join the ultimate cybersecurity competition. Test your skills, solve
+                        real-world challenges, and connect with the best security minds in the
+                        community.
+                    </motion.p>
 
-                <motion.div
-                    variants={itemVariants}
-                    className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
-                >
-                    <Button href="/register" variant="primary">
-                        Register Now
-                    </Button>
-                    <Button href="/about" variant="outline">
-                        Learn More
-                    </Button>
-                </motion.div>
+                    <motion.div
+                        variants={itemVariants}
+                        className="mt-8 flex flex-col sm:flex-row items-start gap-4"
+                    >
+                        <Button href="/register" variant="primary">
+                            Register Now
+                        </Button>
+                        <Button href="/about" variant="outline">
+                            Learn More
+                        </Button>
+                    </motion.div>
+                </div>
             </motion.div>
         </section>
     );

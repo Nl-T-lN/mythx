@@ -1,26 +1,32 @@
 @import "tailwindcss";
 
-/* ===== Design Tokens ===== */
+/* ===== Design Tokens — Doctor Doom Green Theme ===== */
 :root {
-  --bg-primary: #0A0F1C;
-  --bg-secondary: #0F172A;
-  --bg-tertiary: #131B2E;
-  --glass-bg: rgba(255, 255, 255, 0.04);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  --bg-primary: #080f0a;
+  --bg-secondary: #0d1a10;
+  --bg-tertiary: #112016;
 
-  --accent-cyan: #00F5D4;
-  --accent-purple: #7C3AED;
-  --accent-blue: #3B82F6;
-  --accent-pink: #EC4899;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(61, 153, 112, 0.12);
+
+  /* Primary accent — Doom teal-green */
+  --accent-cyan: #3ddc84;
+  /* Secondary — deep forest green */
+  --accent-purple: #1a6b3c;
+  /* Tertiary — bright lime highlight */
+  --accent-blue: #52b788;
+  /* Danger/hot accent */
+  --accent-pink: #2d9a5f;
+
   --success: #22C55E;
   --danger: #EF4444;
 
-  --glow-cyan: rgba(0, 245, 212, 0.15);
-  --glow-purple: rgba(124, 58, 237, 0.15);
-  --glow-cyan-strong: rgba(0, 245, 212, 0.35);
+  --glow-cyan: rgba(61, 220, 132, 0.15);
+  --glow-purple: rgba(26, 107, 60, 0.2);
+  --glow-cyan-strong: rgba(61, 220, 132, 0.4);
 
-  --text-primary: #FFFFFF;
-  --text-muted: #8B95A9;
+  --text-primary: #e8f5ee;
+  --text-muted: #7aab8a;
 }
 
 /* ===== Tailwind v4 theme inline ===== */
@@ -66,7 +72,7 @@ body {
   position: relative;
 }
 
-/* ===== Scrollbar Theme ===== */
+/* ===== Scrollbar ===== */
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -78,19 +84,19 @@ body {
 ::-webkit-scrollbar-thumb {
   background: var(--accent-cyan);
   border-radius: 3px;
-  box-shadow: 0 0 8px rgba(0, 245, 212, 0.3);
+  box-shadow: 0 0 8px rgba(61, 220, 132, 0.3);
 }
 
 /* ===== Selection ===== */
 ::selection {
-  background: rgba(0, 245, 212, 0.25);
+  background: rgba(61, 220, 132, 0.25);
   color: #fff;
 }
 
-/* ===== Focus ring utility ===== */
+/* ===== Focus ring ===== */
 .focus-glow:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 245, 212, 0.5);
+  box-shadow: 0 0 0 2px rgba(61, 220, 132, 0.5);
 }
 
 /* ===== Animations ===== */
@@ -150,15 +156,15 @@ body {
 }
 
 .glass-glow:hover {
-  border-color: rgba(0, 245, 212, 0.2);
-  box-shadow: 0 0 20px rgba(0, 245, 212, 0.06), inset 0 0 20px rgba(0, 245, 212, 0.02);
+  border-color: rgba(61, 220, 132, 0.2);
+  box-shadow: 0 0 20px rgba(61, 220, 132, 0.06), inset 0 0 20px rgba(61, 220, 132, 0.02);
 }
 
 /* ===== Text Glow ===== */
 .text-glow-cyan {
-  text-shadow: 0 0 20px rgba(0, 245, 212, 0.3), 0 0 40px rgba(0, 245, 212, 0.1);
+  text-shadow: 0 0 20px rgba(61, 220, 132, 0.4), 0 0 40px rgba(61, 220, 132, 0.15);
 }
 
 .text-glow-purple {
-  text-shadow: 0 0 20px rgba(124, 58, 237, 0.3), 0 0 40px rgba(124, 58, 237, 0.1);
+  text-shadow: 0 0 20px rgba(26, 107, 60, 0.4), 0 0 40px rgba(26, 107, 60, 0.15);
 }

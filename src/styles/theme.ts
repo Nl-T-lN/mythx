@@ -1,20 +1,16 @@
 export const colors = {
-    bgPrimary: "#0A0F1C",
-    bgSecondary: "#0F172A",
-    bgTertiary: "#131B2E",
-    glassBg: "rgba(255,255,255,0.04)",
-    glassBorder: "rgba(255,255,255,0.08)",
-    accentCyan: "#00F5D4",
-    accentPurple: "#7C3AED",
-    accentBlue: "#3B82F6",
-    accentPink: "#EC4899",
-    success: "#22C55E",
-    danger: "#EF4444",
-    glowCyan: "rgba(0,245,212,0.15)",
-    glowPurple: "rgba(124,58,237,0.15)",
-    textPrimary: "#FFFFFF",
-    textMuted: "#8B95A9",
-} as const;
+    bgPrimary: "#080f0a",
+    bgSecondary: "#0d1a10",
+    bgTertiary: "#112016",
+    accentCyan: "#3ddc84",
+    accentPurple: "#1a6b3c",
+    accentBlue: "#52b788",
+    textPrimary: "#e8f5ee",
+    textMuted: "#7aab8a",
+};
 
-export const glassClasses =
-    "backdrop-blur-lg bg-white/[0.04] border border-white/[0.08] rounded-2xl" as const;
+export const glass = {
+    bg: "bg-white/[0.04]",
+    border: "border-[rgba(61,153,112,0.12)]",
+    backdrop: "backdrop-blur-xl",
+};
