@@ -81,7 +81,7 @@ const Squares: React.FC<SquaresProps> = ({
                 Math.sqrt(canvas.width ** 2 + canvas.height ** 2) / 2
             );
             gradient.addColorStop(0, 'rgba(0, 0, 0, 0)');
-            gradient.addColorStop(1, '#080f0a');
+            gradient.addColorStop(1, '#050906');
 
             ctx.fillStyle = gradient;
             ctx.fillRect(0, 0, canvas.width, canvas.height);

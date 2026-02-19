@@ -28,13 +28,13 @@ export default function Hero() {
             <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
                 <motion.div
                     className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full blur-[180px]"
-                    style={{ background: "rgba(61,220,132,0.07)" }}
+                    style={{ background: "rgba(33,140,99,0.07)" }}
                     animate={{ x: [0, 20, -15, 0], y: [0, -30, 15, 0], scale: [1, 1.08, 0.95, 1] }}
                     transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
                 />
                 <motion.div
                     className="absolute bottom-0 right-1/3 w-[400px] h-[400px] rounded-full blur-[140px]"
-                    style={{ background: "rgba(26,107,60,0.12)" }}
+                    style={{ background: "rgba(14,43,29,0.15)" }}
                     animate={{ x: [0, -20, 30, 0], y: [0, 25, -20, 0], scale: [1, 0.9, 1.1, 1] }}
                     transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
                 />
@@ -51,14 +51,14 @@ export default function Hero() {
                 <div
                     className="absolute inset-0 z-10 pointer-events-none"
                     style={{
-                        background: "linear-gradient(to left, #080f0a 0%, transparent 8%), linear-gradient(to top, #080f0a 0%, transparent 15%)",
+                        background: "linear-gradient(to left, #050906 0%, transparent 8%), linear-gradient(to top, #050906 0%, transparent 15%)",
                     }}
                 />
                 {/* Green glow behind character */}
                 <div
                     className="absolute inset-0 pointer-events-none"
                     style={{
-                        background: "radial-gradient(ellipse 70% 80% at 55% 60%, rgba(61,220,132,0.11) 0%, transparent 70%)",
+                        background: "radial-gradient(ellipse 70% 80% at 55% 60%, rgba(33,140,99,0.1) 0%, transparent 70%)",
                     }}
                 />
                 <Image
