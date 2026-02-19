@@ -42,7 +42,7 @@ export default function Hero() {
 
             {/* RIGHT — Doom image: absolute, fills right side, full height */}
             <motion.div
-                className="absolute right-0 top-0 w-[62%] h-full pointer-events-none"
+                className="hidden md:block absolute right-0 top-0 w-[62%] h-full pointer-events-none"
                 initial={{ opacity: 0, x: 80 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
@@ -97,7 +97,8 @@ export default function Hero() {
                         </span>
                         <br />
                         <span className="text-white/30 text-4xl sm:text-5xl lg:text-6xl">2026</span>
-                    </motion.h1>
+                    </motion.h1> 
+                    {/* MYTHX{T3e_G4m3_I5_0vEr_4o4} */}
 
                     {/* Accent line */}
                     <motion.div
