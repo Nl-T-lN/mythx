@@ -76,7 +76,7 @@ export default function Hero() {
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-10 flex flex-col justify-center min-h-screen pb-16 pt-24"
+                className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 flex flex-col justify-center min-h-screen pb-16 pt-24"
             >
                 <div className="w-full md:max-w-[44%]">
                     <motion.p
@@ -86,19 +86,36 @@ export default function Hero() {
                         Capture The Flag Event
                     </motion.p>
 
-                    <motion.h1
+                    <motion.div
                         variants={itemVariants}
-                        className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[0.95] tracking-tight"
+                        className="flex items-center gap-4 mb-1"
                     >
-                        CTF
-                        <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-purple text-glow-cyan">
-                            COMMUNITY
-                        </span>
-                        <br />
-                        <span className="text-white/30 text-4xl sm:text-5xl lg:text-6xl">2026</span>
-                    </motion.h1> 
-                    {/* MYTHX{T3e_G4m3_I5_0vEr_4o4} */}
+                        <Image
+                            src="/logo.png"
+                            alt="MythX"
+                            width={64}
+                            height={64}
+                            className="drop-shadow-[0_0_20px_rgba(33,140,99,0.6)]"
+                        />
+                        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[0.95] tracking-tight">
+                            MYTHX
+                        </h1>
+                    </motion.div>
+
+                    <motion.h2
+                        variants={itemVariants}
+                        className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[0.95] tracking-tight text-white text-glow-cyan"
+                    >
+                        COMMUNITY
+                    </motion.h2>
+
+                    <motion.p
+                        variants={itemVariants}
+                        className="text-white/30 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mt-1"
+                    >
+                        2026
+                    </motion.p>
+
 
                     {/* Accent line */}
                     <motion.div
