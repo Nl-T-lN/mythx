@@ -34,15 +34,12 @@ export default function Hero() {
 
         const timeout = setTimeout(() => {
             if (!isDeleting) {
-                // Typing
                 if (charIndex < currentWord.length) {
                     setCharIndex(charIndex + 1);
                 } else {
-                    // Pause then start deleting
                     setTimeout(() => setIsDeleting(true), 1800);
                 }
             } else {
-                // Deleting
                 if (charIndex > 0) {
                     setCharIndex(charIndex - 1);
                 } else {
@@ -58,7 +55,7 @@ export default function Hero() {
     const displayedText = typewriterWords[wordIndex].slice(0, charIndex);
 
     return (
-        <section className="relative min-h-screen flex items-center overflow-hidden">
+        <section className="relative min-h-screen flex flex-col overflow-hidden">
             {/* Background glow orbs */}
             <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
                 <motion.div
@@ -75,7 +72,7 @@ export default function Hero() {
                 />
             </div>
 
-            {/* RIGHT — Doom image */}
+            {/* Desktop — Doom image absolute on right */}
             <motion.div
                 className="hidden md:block absolute right-0 top-0 w-[62%] h-full pointer-events-none"
                 initial={{ opacity: 0, x: 80 }}
@@ -104,51 +101,42 @@ export default function Hero() {
                 />
             </motion.div>
 
-            {/* LEFT — Text content */}
+            {/* Text content — centered on mobile, left-aligned on desktop */}
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 flex flex-col justify-center min-h-screen pb-16 pt-24"
+                className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 flex flex-col justify-center flex-1 pt-24 pb-6 md:pb-16 md:min-h-screen"
             >
-                <div className="w-full md:max-w-[44%]">
+                <div className="w-full md:max-w-[44%] text-center md:text-left flex flex-col items-center md:items-start">
                     {/* Typewriter line */}
                     <motion.div
                         variants={itemVariants}
                         className="flex items-center gap-2 mb-5"
                     >
-                        <span className="text-accent-cyan text-xs font-semibold tracking-[0.3em] uppercase">
+                        <span className="text-accent-cyan text-sm sm:text-base font-semibold tracking-[0.3em] uppercase">
                             {displayedText}
                         </span>
-                        <span className="w-[2px] h-4 bg-accent-cyan animate-pulse" />
+                        <span className="w-[2px] h-5 bg-accent-cyan animate-pulse" />
                     </motion.div>
 
-                    <motion.div
+                    <motion.h1
                         variants={itemVariants}
-                        className="flex items-center gap-4 mb-1"
+                        className="text-6xl sm:text-7xl lg:text-8xl font-extrabold leading-[0.95] tracking-tight mb-4"
                     >
-                        <Image
-                            src="/logo.png"
-                            alt="MythX"
-                            width={64}
-                            height={64}
-                            className="drop-shadow-[0_0_20px_rgba(33,140,99,0.6)]"
-                        />
-                        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[0.95] tracking-tight">
-                            MYTHX
-                        </h1>
-                    </motion.div>
+                        MYTHX
+                    </motion.h1>
 
                     <motion.h2
                         variants={itemVariants}
-                        className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[0.95] tracking-tight text-white text-glow-cyan"
+                        className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[0.95] tracking-tight text-white text-glow-cyan"
                     >
                         COMMUNITY
                     </motion.h2>
 
                     <motion.p
                         variants={itemVariants}
-                        className="text-white/30 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mt-1"
+                        className="text-white/30 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mt-1"
                     >
                         2026
                     </motion.p>
@@ -157,16 +145,14 @@ export default function Hero() {
                     <motion.div
                         variants={itemVariants}
                         className="mt-6 mb-6 h-px w-24"
-                        style={{ background: "linear-gradient(90deg, #218c63, transparent)" }}
+                        style={{ background: "linear-gradient(90deg, #34d399, transparent)" }}
                     />
 
                     <motion.p
                         variants={itemVariants}
-                        className="text-base md:text-lg text-text-muted max-w-md leading-relaxed"
+                        className="text-accent-cyan text-base sm:text-lg tracking-[0.15em] uppercase font-semibold"
                     >
-                        Join the ultimate cybersecurity competition. Test your skills, solve
-                        real-world challenges, and connect with the best security minds in the
-                        community.
+                        An Endgame Protocol
                     </motion.p>
 
                     <motion.div
@@ -178,6 +164,28 @@ export default function Hero() {
                         </Button>
                     </motion.div>
                 </div>
+            </motion.div>
+
+            {/* Mobile — Doom image below content, full width, in normal flow */}
+            <motion.div
+                className="md:hidden relative w-full pointer-events-none"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+            >
+                {/* Bottom fade so image blends into next section */}
+                <div
+                    className="absolute bottom-0 left-0 right-0 h-24 z-10 pointer-events-none"
+                    style={{ background: "linear-gradient(to top, #050906, transparent)" }}
+                />
+                <Image
+                    src="/dooms_rbg.png"
+                    alt="Doctor Doom"
+                    width={800}
+                    height={900}
+                    priority
+                    className="w-full h-auto object-cover drop-shadow-[0_0_60px_rgba(52,211,153,0.25)]"
+                />
             </motion.div>
         </section>
     );

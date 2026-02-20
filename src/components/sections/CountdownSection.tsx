@@ -32,9 +32,10 @@ const units: { label: string; key: keyof TimeLeft }[] = [
 ];
 
 export default function CountdownSection() {
-    const [timeLeft, setTimeLeft] = useState<TimeLeft>(getTimeLeft());
+    const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
     useEffect(() => {
+        setTimeLeft(getTimeLeft());
         const interval = setInterval(() => {
             setTimeLeft(getTimeLeft());
         }, 1000);
