@@ -7,10 +7,10 @@
   --bg-tertiary: #20553c;
 
   --glass-bg: rgba(255, 255, 255, 0.04);
-  --glass-border: rgba(33, 140, 99, 0.15);
+  --glass-border: rgba(45, 184, 127, 0.15);
 
   /* Primary accent — turquoise */
-  --accent-cyan: #218c63;
+  --accent-cyan: #34d399;
   /* Secondary — dark green */
   --accent-purple: #20553c;
   /* Tertiary — grey green */
@@ -21,9 +21,9 @@
   --success: #22C55E;
   --danger: #EF4444;
 
-  --glow-cyan: rgba(33, 140, 99, 0.2);
+  --glow-cyan: rgba(45, 184, 127, 0.25);
   --glow-purple: rgba(32, 85, 60, 0.2);
-  --glow-cyan-strong: rgba(33, 140, 99, 0.5);
+  --glow-cyan-strong: rgba(45, 184, 127, 0.55);
 
   --text-primary: #e0ede5;
   --text-muted: #82a18a;
@@ -83,12 +83,12 @@ body {
 ::-webkit-scrollbar-thumb {
   background: var(--accent-cyan);
   border-radius: 3px;
-  box-shadow: 0 0 8px rgba(33, 140, 99, 0.4);
+  box-shadow: 0 0 8px rgba(45, 184, 127, 0.4);
 }
 
 /* ===== Selection ===== */
 ::selection {
-  background: rgba(33, 140, 99, 0.3);
+  background: rgba(45, 184, 127, 0.3);
   color: #fff;
 }
 
@@ -149,13 +149,13 @@ body {
 }
 
 .glass-glow:hover {
-  border-color: rgba(33, 140, 99, 0.25);
-  box-shadow: 0 0 20px rgba(33, 140, 99, 0.08), inset 0 0 20px rgba(33, 140, 99, 0.03);
+  border-color: rgba(45, 184, 127, 0.25);
+  box-shadow: 0 0 20px rgba(45, 184, 127, 0.08), inset 0 0 20px rgba(45, 184, 127, 0.03);
 }
 
 /* ===== Text Glow ===== */
 .text-glow-cyan {
-  text-shadow: 0 0 20px rgba(33, 140, 99, 0.5), 0 0 40px rgba(33, 140, 99, 0.2);
+  text-shadow: 0 0 20px rgba(45, 184, 127, 0.6), 0 0 40px rgba(45, 184, 127, 0.25);
 }
 
 .text-glow-purple {

@@ -94,7 +94,7 @@ export default function TimelinePage() {
                         CTF{" "}
                         <span
                             className="text-transparent bg-clip-text text-glow-cyan"
-                            style={{ backgroundImage: "linear-gradient(135deg, #218c63, #82a18a)" }}
+                            style={{ backgroundImage: "linear-gradient(135deg, #2db87f, #a8c4ae)" }}
                         >
                             Timeline
                         </span>
@@ -131,8 +131,8 @@ export default function TimelinePage() {
                                     <div className={`w-full md:w-[45%] ${isRight ? "md:pr-10" : "md:pl-10"} pl-14 md:pl-0`}>
                                         <GlassContainer
                                             className={`p-5 md:p-6 relative transition-all duration-300 hover:border-accent-cyan/25 ${event.accent
-                                                    ? "border-accent-cyan/20 shadow-[0_0_30px_rgba(33,140,99,0.08)]"
-                                                    : ""
+                                                ? "border-accent-cyan/20 shadow-[0_0_30px_rgba(33,140,99,0.08)]"
+                                                : ""
                                                 }`}
                                         >
                                             {/* Tag */}
@@ -157,8 +157,8 @@ export default function TimelinePage() {
                                     <div className="absolute left-6 md:left-1/2 -translate-x-1/2 top-6 flex items-center justify-center">
                                         <div
                                             className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${event.accent
-                                                    ? "bg-accent-cyan border-accent-cyan shadow-[0_0_12px_rgba(33,140,99,0.8)]"
-                                                    : "bg-bg-secondary border-accent-cyan/40"
+                                                ? "bg-accent-cyan border-accent-cyan shadow-[0_0_12px_rgba(33,140,99,0.8)]"
+                                                : "bg-bg-secondary border-accent-cyan/40"
                                                 }`}
                                         />
                                     </div>

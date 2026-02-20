@@ -5,30 +5,9 @@ import GlassContainer from "@/components/ui/GlassContainer";
 import Button from "@/components/ui/Button";
 
 const prizes = [
-    {
-        rank: "1st",
-        amount: "₹15,000",
-        label: "First Place",
-        emoji: "🥇",
-        accent: true,
-        description: "The champion team takes home the grand prize along with exclusive MythX swag, certificates of excellence, and a fast-track invitation to our advanced red-team workshop.",
-    },
-    {
-        rank: "2nd",
-        amount: "₹10,000",
-        label: "Second Place",
-        emoji: "🥈",
-        accent: false,
-        description: "Runner-up team receives a generous cash prize, official certificates, MythX merchandise, and priority access to future MythX events and community programs.",
-    },
-    {
-        rank: "3rd",
-        amount: "₹5,000",
-        label: "Third Place",
-        emoji: "🏅",
-        accent: false,
-        description: "Third-place finishers earn a cash reward, participation certificates, and recognition across our social channels and community leaderboard.",
-    },
+    { rank: "1st", amount: "₹40,000", label: "First Place", emoji: "🥇", accent: true },
+    { rank: "2nd", amount: "₹25,000", label: "Second Place", emoji: "🥈", accent: false },
+    { rank: "3rd", amount: "₹15,000", label: "Third Place", emoji: "🏅", accent: false },
 ];
 
 export default function PrizesPage() {
@@ -52,12 +31,7 @@ export default function PrizesPage() {
                     </p>
                     <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
                         Prize{" "}
-                        <span
-                            className="text-transparent bg-clip-text text-glow-cyan"
-                            style={{ backgroundImage: "linear-gradient(135deg, #218c63, #82a18a)" }}
-                        >
-                            Pool
-                        </span>
+                        <span className="text-accent-cyan text-glow-cyan">Pool</span>
                     </h1>
                     <p className="mt-5 text-base md:text-lg text-text-muted max-w-xl mx-auto leading-relaxed">
                         Compete for glory and cash prizes. The top teams walk away with more than bragging rights.
@@ -74,22 +48,22 @@ export default function PrizesPage() {
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ duration: 0.5 }}
                 >
-                    <GlassContainer className="p-8 md:p-10 text-center border-accent-cyan/20 shadow-[0_0_40px_rgba(33,140,99,0.08)]">
+                    <GlassContainer className="p-8 md:p-10 text-center border-accent-cyan/20 shadow-[0_0_40px_rgba(45,184,127,0.1)]">
                         <p className="text-xs text-text-muted tracking-[0.25em] uppercase font-medium mb-2">
                             Total Prize Pool
                         </p>
                         <h2 className="text-5xl md:text-6xl font-extrabold text-accent-cyan text-glow-cyan">
-                            ₹75,000
+                            ₹1,50,000
                         </h2>
                         <p className="mt-3 text-sm text-text-muted">
-                            Distributed across top 3 teams + special category awards
+                            Cash prizes, sponsor goodies, vouchers & certifications
                         </p>
                     </GlassContainer>
                 </motion.div>
             </section>
 
-            {/* Individual Prizes */}
-            <section className="px-4 pb-24">
+            {/* Top 3 Prizes */}
+            <section className="px-4 pb-16">
                 <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
                     {prizes.map((prize, i) => (
                         <motion.div
@@ -100,33 +74,54 @@ export default function PrizesPage() {
                             transition={{ duration: 0.5, delay: i * 0.1 }}
                         >
                             <GlassContainer
-                                className={`p-7 md:p-8 text-center h-full flex flex-col transition-all duration-300 hover:border-accent-cyan/25 ${prize.accent
-                                        ? "border-accent-cyan/20 shadow-[0_0_30px_rgba(33,140,99,0.1)]"
+                                className={`p-7 md:p-8 text-center h-full flex flex-col items-center transition-all duration-300 hover:border-accent-cyan/25 ${prize.accent
+                                        ? "border-accent-cyan/20 shadow-[0_0_30px_rgba(45,184,127,0.1)]"
                                         : ""
                                     }`}
                             >
-                                <span className="text-4xl mb-3">{prize.emoji}</span>
+                                <span className="text-5xl mb-4">{prize.emoji}</span>
                                 <span
-                                    className="inline-block text-[10px] font-bold tracking-[0.2em] uppercase px-3 py-1 rounded-full mb-3 self-center"
+                                    className="inline-block text-[10px] font-bold tracking-[0.2em] uppercase px-3 py-1 rounded-full mb-4"
                                     style={{
                                         background: prize.accent
-                                            ? "rgba(33,140,99,0.2)"
+                                            ? "rgba(45,184,127,0.15)"
                                             : "rgba(130,161,138,0.12)",
-                                        color: prize.accent ? "#218c63" : "#82a18a",
+                                        color: prize.accent ? "#2db87f" : "#82a18a",
                                     }}
                                 >
                                     {prize.label}
                                 </span>
-                                <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-3">
+                                <h3 className="text-3xl md:text-4xl font-extrabold text-white">
                                     {prize.amount}
                                 </h3>
-                                <p className="text-sm text-text-muted leading-relaxed flex-1">
-                                    {prize.description}
-                                </p>
                             </GlassContainer>
                         </motion.div>
                     ))}
                 </div>
+            </section>
+
+            {/* 4th to 10th */}
+            <section className="px-4 pb-24">
+                <motion.div
+                    className="max-w-2xl mx-auto"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 0.5, delay: 0.15 }}
+                >
+                    <GlassContainer className="p-7 md:p-9 text-center">
+                        <span className="text-3xl mb-3 block">🎁</span>
+                        <span
+                            className="inline-block text-[10px] font-bold tracking-[0.2em] uppercase px-3 py-1 rounded-full mb-3"
+                            style={{ background: "rgba(130,161,138,0.12)", color: "#82a18a" }}
+                        >
+                            4th – 10th Place
+                        </span>
+                        <h3 className="text-2xl font-bold text-white">
+                            Vouchers, Certifications & Goodies
+                        </h3>
+                    </GlassContainer>
+                </motion.div>
             </section>
 
             {/* CTA */}
@@ -144,7 +139,7 @@ export default function PrizesPage() {
                             <span className="text-accent-cyan text-glow-cyan">Win</span>?
                         </h2>
                         <p className="text-text-muted mb-7">
-                            Registration is open. Assemble your team and claim your share of the prize pool.
+                            Registration is open. Assemble your team and claim your share of the ₹1,50,000 prize pool.
                         </p>
                         <Button href="/register" variant="primary">
                             Register Now
