@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
@@ -21,7 +22,41 @@ const itemVariants = {
     },
 };
 
+const typewriterWords = ["CTF", "Summit"];
+
 export default function Hero() {
+    const [wordIndex, setWordIndex] = useState(0);
+    const [charIndex, setCharIndex] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    useEffect(() => {
+        const currentWord = typewriterWords[wordIndex];
+
+        const timeout = setTimeout(() => {
+            if (!isDeleting) {
+                // Typing
+                if (charIndex < currentWord.length) {
+                    setCharIndex(charIndex + 1);
+                } else {
+                    // Pause then start deleting
+                    setTimeout(() => setIsDeleting(true), 1800);
+                }
+            } else {
+                // Deleting
+                if (charIndex > 0) {
+                    setCharIndex(charIndex - 1);
+                } else {
+                    setIsDeleting(false);
+                    setWordIndex((wordIndex + 1) % typewriterWords.length);
+                }
+            }
+        }, isDeleting ? 80 : 120);
+
+        return () => clearTimeout(timeout);
+    }, [charIndex, isDeleting, wordIndex]);
+
+    const displayedText = typewriterWords[wordIndex].slice(0, charIndex);
+
     return (
         <section className="relative min-h-screen flex items-center overflow-hidden">
             {/* Background glow orbs */}
@@ -40,21 +75,19 @@ export default function Hero() {
                 />
             </div>
 
-            {/* RIGHT — Doom image: absolute, fills right side, full height */}
+            {/* RIGHT — Doom image */}
             <motion.div
                 className="hidden md:block absolute right-0 top-0 w-[62%] h-full pointer-events-none"
                 initial={{ opacity: 0, x: 80 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
             >
-                {/* Left-edge fade so image blends into text area */}
                 <div
                     className="absolute inset-0 z-10 pointer-events-none"
                     style={{
                         background: "linear-gradient(to left, #050906 0%, transparent 8%), linear-gradient(to top, #050906 0%, transparent 15%)",
                     }}
                 />
-                {/* Green glow behind character */}
                 <div
                     className="absolute inset-0 pointer-events-none"
                     style={{
@@ -79,12 +112,16 @@ export default function Hero() {
                 className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 flex flex-col justify-center min-h-screen pb-16 pt-24"
             >
                 <div className="w-full md:max-w-[44%]">
-                    <motion.p
+                    {/* Typewriter line */}
+                    <motion.div
                         variants={itemVariants}
-                        className="text-accent-cyan text-xs font-semibold tracking-[0.3em] uppercase mb-5"
+                        className="flex items-center gap-2 mb-5"
                     >
-                        Capture The Flag Event
-                    </motion.p>
+                        <span className="text-accent-cyan text-xs font-semibold tracking-[0.3em] uppercase">
+                            {displayedText}
+                        </span>
+                        <span className="w-[2px] h-4 bg-accent-cyan animate-pulse" />
+                    </motion.div>
 
                     <motion.div
                         variants={itemVariants}
@@ -116,12 +153,11 @@ export default function Hero() {
                         2026
                     </motion.p>
 
-
                     {/* Accent line */}
                     <motion.div
                         variants={itemVariants}
                         className="mt-6 mb-6 h-px w-24"
-                        style={{ background: "linear-gradient(90deg, #3ddc84, transparent)" }}
+                        style={{ background: "linear-gradient(90deg, #218c63, transparent)" }}
                     />
 
                     <motion.p
@@ -135,13 +171,10 @@ export default function Hero() {
 
                     <motion.div
                         variants={itemVariants}
-                        className="mt-8 flex flex-col sm:flex-row items-start gap-4"
+                        className="mt-8"
                     >
                         <Button href="/register" variant="primary">
                             Register Now
-                        </Button>
-                        <Button href="/about" variant="outline">
-                            Learn More
                         </Button>
                     </motion.div>
                 </div>

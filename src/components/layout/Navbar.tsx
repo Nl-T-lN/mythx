@@ -10,6 +10,7 @@ const navLinks = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Timeline", href: "/timeline" },
+    { label: "Prizes", href: "/prizes" },
 ];
 
 export default function Navbar() {
@@ -57,8 +58,8 @@ export default function Navbar() {
                                 <Link
                                     href={link.href}
                                     className={`relative text-sm font-medium transition-colors duration-200 ${pathname === link.href
-                                            ? "text-accent-cyan"
-                                            : "text-text-muted hover:text-white"
+                                        ? "text-accent-cyan"
+                                        : "text-text-muted hover:text-white"
                                         }`}
                                 >
                                     {link.label}
@@ -113,8 +114,8 @@ export default function Navbar() {
                             href={link.href}
                             onClick={() => setMenuOpen(false)}
                             className={`flex items-center gap-3 px-4 py-3.5 rounded-xl text-base font-semibold transition-all duration-200 ${pathname === link.href
-                                    ? "text-accent-cyan bg-accent-cyan/[0.08] shadow-[inset_0_0_20px_rgba(33,140,99,0.06)]"
-                                    : "text-text-muted hover:text-white hover:bg-white/[0.04]"
+                                ? "text-accent-cyan bg-accent-cyan/[0.08] shadow-[inset_0_0_20px_rgba(33,140,99,0.06)]"
+                                : "text-text-muted hover:text-white hover:bg-white/[0.04]"
                                 }`}
                             style={{ transitionDelay: menuOpen ? `${i * 50}ms` : "0ms" }}
                         >
