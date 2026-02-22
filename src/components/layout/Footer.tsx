@@ -8,9 +8,9 @@ const exploreLinks = [
 ];
 
 const connectLinks = [
-    { label: "Instagram", href: "https://instagram.com" },
-    { label: "Twitter", href: "https://twitter.com" },
-    { label: "Discord", href: "https://discord.com" },
+    { label: "Instagram", href: "https://www.instagram.com/mythx_offixial/" },
+    { label: "Linkedin", href: "https://www.linkedin.com/company/mythxofficial/" },
+    { label: "Discord", href: "https://discord.gg/SHreG4RzNC" },
 ];
 
 export default function Footer() {
